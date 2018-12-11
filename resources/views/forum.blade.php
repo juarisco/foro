@@ -6,7 +6,9 @@
     
         <div class="card">
             <div class="card-header">
-                <img src="{{ $d->user->avatar }}" alt="" width="70px" height="70px">
+                <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;
+                <span>{{ $d->user->name }}</span>
+                <a href="{{ route('discussion', ['slug' => $d->slug]) }}" class="btn btn-link float-right">view</a>
             </div>
 
             <div class="card-body">
@@ -16,7 +18,15 @@
                     </div>
                 @endif
 
-                {{ $d->content }}
+                <h5 class="text-center">
+                    {{ $d->title }}
+                </h5>
+                <p class="text-center">
+                    {{ str_limit($d->content, 50) }}
+                </p>
+            </div>
+            <div class="card-footer">
+                <p>{{ $d->replies->count() }} Replies</p>
             </div>
         </div>
         <br>
