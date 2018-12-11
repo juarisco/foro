@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/forum', 'ForumsController@index')->name('forum');
 
 Route::get('{provider}/auth', 'SocialsController@auth')->name('social.auth');
 
