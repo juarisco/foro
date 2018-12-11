@@ -15,10 +15,15 @@
                         @csrf
 
                         {{-- <legend>Form title</legend> --}}
+
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" class="form-control" autofocus>
+                        </div>
                     
                         <div class="form-group">
                             <label for="category">Pick a category <small>*channel*</small></label>
-                            <select name="category_id" id="category_id" class="form-control" autofocus>
+                            <select name="category_id" id="category_id" class="form-control">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                                 @endforeach

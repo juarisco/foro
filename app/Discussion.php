@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discussion extends Model
 {
-    protected $fillable = ['title', 'content', 'user_id', 'category_id'];
+    protected $fillable = ['title', 'slug', 'content', 'user_id', 'category_id'];
 
     public function category()
     {
