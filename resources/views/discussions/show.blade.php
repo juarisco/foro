@@ -10,9 +10,9 @@
     </div>
 
     <div class="card-body">
-        @if (session('status'))
+        @if (session('success'))
             <div class="alert alert-success" role="alert">
-                {{ session('status') }}
+                {{ session('success') }}
             </div>
         @endif
 
@@ -50,9 +50,9 @@
         </div>
         <div class="card-footer">
             @if ($r->is_liked_by_auth_user())
-                <a href="" class="btn btn-danger btn-sm">Unlike</a>
+                <a href="{{ route('reply.unlike', ['id' => $r->id]) }}" class="btn btn-danger btn-sm">Unlike</a>
             @else
-                <a href="" class="btn btn-success btn-sm">Like</a>
+                <a href="{{ route('reply.like', ['id' => $r->id]) }}" class="btn btn-success btn-sm">Like</a>
             @endif
         </div>
     </div>
