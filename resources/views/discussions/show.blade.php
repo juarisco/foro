@@ -55,4 +55,29 @@
     <br>
 @endforeach
 
+<div class="card">
+    {{-- <div class="card-header">
+    </div> --}}
+
+    <div class="card-body">
+        <form action="{{ route('discussion.reply', ['id' => $d->id]) }}" method="POST" role="form">
+            @csrf
+            {{-- <legend>Form title</legend> --}}
+        
+            <div class="form-group">
+                <label for="content">Leave a reply...</label>
+                <textarea name="content" cols="30" rows="10" class="form-control" id="content"></textarea>
+            </div>
+        
+            
+        
+            <button type="submit" class="btn btn-primary float-right">Leave a reply</button>
+        </form>
+    </div>
+
+    {{-- <div class="card-footer">
+    </div> --}}
+</div>
+<br>
+
 @endsection

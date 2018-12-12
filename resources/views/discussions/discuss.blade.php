@@ -36,7 +36,7 @@
                         </div>
                     
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Create discussion</button>
+                            <button type="submit" class="btn btn-success float-right">Create discussion</button>
                         </div>
                     </form>
 
