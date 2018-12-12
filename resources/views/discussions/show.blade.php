@@ -49,7 +49,11 @@
             </p>
         </div>
         <div class="card-footer">
-            <p>Like</p>
+            @if ($r->is_liked_by_auth_user())
+                <a href="" class="btn btn-danger btn-sm">Unlike</a>
+            @else
+                <a href="" class="btn btn-success btn-sm">Like</a>
+            @endif
         </div>
     </div>
     <br>
