@@ -25,6 +25,9 @@ Route::get('/{provider}/redirect', 'SocialsController@auth_callback')->name('soc
 
 Route::get('discussion/{slug}', 'DiscussionsController@show')->name('discussion');
 
+Route::get('category/{slug}', 'ForumsController@category')->name('category');
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', 'CategoriesController');
 
