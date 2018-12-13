@@ -31,7 +31,8 @@ Route::get('category/{slug}', 'ForumsController@category')->name('category');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', 'CategoriesController');
 
-    Route::get('discussion/create', 'DiscussionsController@create')->name('discussions.create');
+    Route::get('discussion/create/new', 'DiscussionsController@create')->name('discussions.create');
+
     Route::post('discussion/store', 'DiscussionsController@store')->name('discussions.store');
     Route::post('discussion/reply/{id}', 'DiscussionsController@reply')->name('discussion.reply');
 

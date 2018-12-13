@@ -79,6 +79,21 @@
                         <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Create a new discussion</a>
                         <br>
                         <br>
+
+                        <div class="card">
+                            {{-- <div class="card-header">
+                                Categories <small>channels</small>
+                            </div> --}}
+                            <div class="card-body">
+                                <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <a href="{{ route('forum') }}" style="text-decoration: none;">Home</a>
+                                        </li>   
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+
                         <div class="card">
                             <div class="card-header">
                                 Categories <small>channels</small>
