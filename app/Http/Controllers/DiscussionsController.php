@@ -8,6 +8,8 @@ use App\Reply;
 use App\Discussion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewReplyAdded;
 
 class DiscussionsController extends Controller
 {
@@ -62,6 +64,7 @@ class DiscussionsController extends Controller
         }
 
         // dd($watchers);
+        Notification::send($watchers, new NewReplyAdded($d));
 
         Session::flash('success', 'Replied to discussion.');
 
