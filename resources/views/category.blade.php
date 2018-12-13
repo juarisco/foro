@@ -26,7 +26,8 @@
                 </p>
             </div>
             <div class="card-footer">
-                <p>{{ $d->replies->count() }} Replies</p>
+                <span>{{ $d->replies->count() }} Replies</span>
+                <a href="{{ route('category', ['slug' => $d->category->slug]) }}" class="btn btn-secondary btn-sm float-right">{{ $d->category->title }}</a>
             </div>
         </div>
         <br>
