@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Session;
+use App\User;
+use App\Reply;
 use App\Discussion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Reply;
 
 class DiscussionsController extends Controller
 {
@@ -53,6 +54,14 @@ class DiscussionsController extends Controller
             'discussion_id' => $id,
             'content' => request()->content
         ]);
+
+        $watchers = array();
+
+        foreach ($d->watchers as $watcher) {
+            array_push($watchers, User::find($watcher->user_id));
+        }
+
+        // dd($watchers);
 
         Session::flash('success', 'Replied to discussion.');
 
