@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-header">
         <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;
-        <span>{{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }}</b></span>
+        <span>{{ $d->user->name }}, <b>( {{ $d->user->points }} )</b></span>
 
         @if ($d->is_being_watched_by_auth_user())
             <a href="{{ route('discussion.unwatch', ['id' => $d->id]) }}" class="btn btn-light btn-xs float-right">unwatch</a>
@@ -37,7 +37,7 @@
             <div class="card border-success mb-3">
                 <div class="card-header">
                     <img src="{{ $best_answer->user->avatar }}" alt="" width="40px" height="40px">&nbsp;
-                    <span>{{ $best_answer->user->name }}</span>
+                    <span>{{ $best_answer->user->name }} <b>( {{ $best_answer->user->points }} )</b></span>
                 </div>
                 <div class="card-body text-success">
                     {{ $best_answer->content }}
@@ -58,7 +58,7 @@
     <div class="card">
         <div class="card-header">
             <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;
-            <span>{{ $r->user->name }}, <b>{{ $r->created_at->diffForHumans() }}</b></span>
+            <span>{{ $r->user->name }} <b>( {{ $r->user->points }} )</b></span>
 
             @if (!$best_answer)
                 <a href="{{ route('discussion.best.answer', ['id' => $r->id]) }}" class="btn btn-info btn-sm float-right">Mark as best answer</a>
