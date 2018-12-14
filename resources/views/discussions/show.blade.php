@@ -15,11 +15,11 @@
     </div>
 
     <div class="card-body">
-        @if (session('success'))
+        {{-- @if (session('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
             </div>
-        @endif
+        @endif --}}
 
         <h4 class="text-center">
             {{ $d->title }}
@@ -69,12 +69,6 @@
         </div>
 
         <div class="card-body">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
             <p class="text-center">
                 {{ $r->content }}
             </p>

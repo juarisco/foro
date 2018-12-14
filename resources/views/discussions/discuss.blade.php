@@ -5,11 +5,11 @@
                 <div class="card-header text-center">Create a new discussion</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    {{-- @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif
+                    @endif --}}
 
                     <form action="{{ route('discussions.store') }}" method="POST" role="form">
                         @csrf
@@ -18,7 +18,7 @@
 
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" autofocus>
+                            <input type="text" name="title" value="{{ old('title') }}" class="form-control" autofocus>
                         </div>
                     
                         <div class="form-group">
@@ -32,7 +32,7 @@
                     
                         <div class="form-group">
                             <label for="content">Ask a question</label>
-                            <textarea name="content" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="content" cols="30" rows="10" class="form-control">{{ old('content') }}</textarea>
                         </div>
                     
                         <div class="form-group">
