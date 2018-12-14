@@ -61,7 +61,9 @@
             <span>{{ $r->user->name }} <b>( {{ $r->user->points }} )</b></span>
 
             @if (!$best_answer)
-                <a href="{{ route('discussion.best.answer', ['id' => $r->id]) }}" class="btn btn-info btn-sm float-right">Mark as best answer</a>
+                @if (Auth::id()==$d->user->id)
+                    <a href="{{ route('discussion.best.answer', ['id' => $r->id]) }}" class="btn btn-info btn-sm float-right">Mark as best answer</a>
+                @endif
             @endif
 
         </div>
