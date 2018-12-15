@@ -7,10 +7,16 @@
         <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;
         <span>{{ $d->user->name }}, <b>( {{ $d->user->points }} )</b></span>
 
-        @if ($d->is_being_watched_by_auth_user())
-            <a href="{{ route('discussion.unwatch', ['id' => $d->id]) }}" class="btn btn-light btn-xs float-right">unwatch</a>
+        @if ($d->hasBestAnswer())
+            <span class="btn btn-success btn-sm float-right">closed</span>
         @else
-            <a href="{{ route('discussion.watch', ['id' => $d->id]) }}" class="btn btn-light btn-xs float-right">watch</a>
+            <span class="btn btn-danger btn-sm float-right">open</span>
+        @endif
+
+        @if ($d->is_being_watched_by_auth_user())
+            <a href="{{ route('discussion.unwatch', ['id' => $d->id]) }}" class="btn btn-light btn-sm float-right" style="margin-right:8px;">unwatch</a>
+        @else
+            <a href="{{ route('discussion.watch', ['id' => $d->id]) }}" class="btn btn-light btn-sm float-right" style="margin-right:8px;">watch</a>
         @endif
     </div>
 

@@ -8,7 +8,13 @@
             <div class="card-header">
                 <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;
                 <span>{{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }}</b></span>
-                <a href="{{ route('discussion', ['slug' => $d->slug]) }}" class="btn btn-link float-right">view</a>
+                <a href="{{ route('discussion', ['slug' => $d->slug]) }}" class="btn btn-link btn-sm float-right" style="margin-right:8px;">view</a>
+                @if ($d->hasBestAnswer())
+                    <span class="btn btn-success btn-sm float-right">closed</span>
+                @else
+                    <span class="btn btn-danger btn-sm float-right">open</span>
+                @endif
+
             </div>
 
             <div class="card-body">
