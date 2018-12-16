@@ -14,7 +14,7 @@ class Reply extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function discusion()
+    public function discussion()
     {
         return $this->belongsTo(Discussion::class);
     }

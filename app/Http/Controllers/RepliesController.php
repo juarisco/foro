@@ -46,4 +46,25 @@ class RepliesController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit($id)
+    {
+        return view('replies.edit', ['reply' => Reply::find($id)]);
+    }
+
+    public function update($id)
+    {
+        $this->validate(request(), [
+            'content' => 'required'
+        ]);
+
+        $reply = Reply::find($id);
+
+        $reply->content = request()->content;
+        $reply->save();
+
+        Session::flash('success', 'Reply updated.');
+
+        return redirect()->route('discussion', ['slug' => $reply->discussion->slug]);
+    }
 }
