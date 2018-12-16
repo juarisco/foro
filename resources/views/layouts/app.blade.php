@@ -10,8 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -109,6 +107,19 @@
                                     </li>   
                                 </ul>
                             </div>
+
+                            @if (Auth::check())
+                                @if (Auth::user()->admin)
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <a href="{{ route('categories.index') }}" style="text-decoration: none;">All Categories <small>*channels*</small></a>
+                                            </li>   
+                                        </ul>
+                                    </div>
+                                @endif
+                            @endif
+
                         </div>
                         <br>
 
@@ -138,7 +149,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @if (Session::has('success'))
         <script>
