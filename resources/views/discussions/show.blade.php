@@ -27,18 +27,13 @@
     </div>
 
     <div class="card-body">
-        {{-- @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif --}}
 
         <h4 class="text-center">
             {{ $d->title }}
         </h4>
         <hr>
         <p class="text-center">
-            {{ $d->content }}
+            {!! \GrahamCampbell\Markdown\Facades\Markdown::convertToHtml($d->content) !!}
         </p>
         
         <hr>
